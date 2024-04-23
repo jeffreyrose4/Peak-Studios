@@ -5,7 +5,7 @@ let movieData = {};
 
 
 // SEARCH MOVIES
-async function searchTerm(event) {
+function searchTerm(event) {
   const movieId = event.target.value;
   getMovies(movieId);
   loading();

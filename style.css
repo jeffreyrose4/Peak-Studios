@@ -7,10 +7,18 @@
   font-family: 'Roboto', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   text-decoration: none;
   color: black;
   font-weight: 700;
+}
+
+.click {
+  cursor: pointer;
 }
 
 li {
@@ -99,10 +107,6 @@ HEADER
 
 */
 
-#header {
-  height: 90vh;
-}
-
 .header__container {
   width: 100%;
   height: 100%;
@@ -142,7 +146,7 @@ HEADER
 
 .undraw__img {
   height: 500px;
-  margin-top: 96px;
+  margin: 96px 0 132px 0;
 }
 
 /* 
@@ -263,7 +267,7 @@ FOOTER
   width: 100%;
   height: 60px;
   filter: invert(1);
-  margin-bottom: 12px;
+  margin: 12px 0;
 }
 
 .footer__copyright {
