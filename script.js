@@ -2,6 +2,7 @@ const movieListEl = document.querySelector(".movie__list");
 const searchValue = document.querySelector(".search__value");
 const n = 6;
 let movieData = {};
+let isModalOpen = false;
 
 
 // SEARCH MOVIES
@@ -45,13 +46,28 @@ async function getMovies(movieId) {
 
 // HTML GENERATION
 function getMovieDescription(movie) {
-  return `<div class="movie">
+  return `<div class="movie" onclick="toggleModal()">
             <figure>
                 <img src="${movie.Poster}"alt="" class="movie__img"/>
             </figure>
             <div class="movie__description--list">
                 <h3 class="movie__description movie__title">${movie.Title}</h3>
                 <p class="movie__description movie__year"><span class="movie__description--heading">Year:</span> ${movie.Year}</p>
+            </div>
+          </div>
+
+          <div class="modal">
+            <div class="modal__half modal__about">
+              <figure>
+                <img src="${movie.Poster}"alt="" class="movie__img"/>
+              </figure>
+            </div>
+              
+            <div class="modal__half modal__contact">
+              <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+              <div>
+              <h3 class="movie__description movie__title">${movie.Title}</h3>
+              </div>
             </div>
           </div>`;
 }
@@ -72,4 +88,15 @@ function loading(load) {
   setTimeout(() => {
     loading.classList.remove("loading__spinner--visible");
   }, 2000);
+}
+
+
+// TOGGLE MODAL
+function toggleModal() {
+  if (isModalOpen) {
+    isModalOpen = false;
+    return document.body.classList.remove("modal--open");
+  }
+  isModalOpen = true;
+  document.body.classList += " modal--open";
 }
